@@ -1,0 +1,16 @@
+export(crossValidation,
+	formulaAm,
+	formulaLm,
+	MAE,
+	modelFit,
+	modelPredict,
+	modelsComparison,
+	penaltyPolyMARS,
+	R2,
+	residualsStudy,
+	RMA,
+	RMSE,
+	stepEvolution,
+	testCrossValidation)
+
+import(DiceKriging)
