@@ -6,7 +6,7 @@ residualsStudy <- function(model)
 		Yfit	<- model$model$fitted
 	} else Yfit	<- model$model$fitted.values
 
-	op <- par(ask=TRUE,mfrow = c(2, 2), oma=c(0,0,3,0))
+	op <- par(mfrow = c(2, 2), oma=c(0,0,3,0))
 	plot(residuals ,ylab = "residuals")
 
 	plot(Yfit,residuals,xlab = "fitted values",ylab = "residuals")

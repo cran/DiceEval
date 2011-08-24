@@ -16,7 +16,7 @@ RMSE(Y, Ypred)
 \value{
 a real which represents the root of the mean squared error between the target response \eqn{Y}{Y}
 and the fitted one \eqn{\hat{Y}}{Ypred}:
-\deqn{RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} \left( Y \left( x_{i}\right)-\hat{Y}
+\deqn{\code{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} \left( Y \left( x_{i}\right)-\hat{Y}
 		\left( x_{i}\right)\right)^2}.}{RMSE = sqrt(mean((Y-Ypred)^2))
 .}
 }

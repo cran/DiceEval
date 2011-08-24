@@ -1,4 +1,3 @@
-library(DiceEval)
 library(gam)
 library(mda)
 library(polspline)
@@ -71,19 +70,20 @@ Ytest_lm <- modelPredict(modLm,Xtest)
 
 # Quality criteria (R2)
 cat("R2Lm =",  R2(Y,modLm$model$fitted.values),"\n",
-    "Q2_100_Lm =", crossValidation(modLm,K=100)$Q2,"\n",
+    "Q2_50_Lm =", crossValidation(modLm,K=50)$Q2,"\n",
     "Q2_10_Lm =", crossValidation(modLm,K=10)$Q2,"\n",
     "R2Lmtest =",  R2(Ytest,Ytest_lm),"\n",sep="") 
 	
 # Other criteria of performance 
-cat("RMA_DOE =",  RMA(Y,modelPredict(modLm,X)),"\n",
-    "RMA_TEST =",  RMA(Ytest,modelPredict(modLm,Xtest)),"\n",
+cat("RMA_DOE =",  RMA(Y,modelPredict(modLm,X))$max.value,"\n",
+    "RMA_TEST =",  RMA(Ytest,modelPredict(modLm,Xtest))$max.value,"\n",
  	"MAE_DOE =",  MAE(Y,modelPredict(modLm,X)),"\n",
     "MAE_TEST =",  MAE(Ytest,modelPredict(modLm,Xtest)),"\n",
 	"RMSE_DOE =",  RMSE(Y,modelPredict(modLm,X)),"\n",
     "RMSE_TEST =",  RMSE(Ytest,modelPredict(modLm,Xtest)),"\n")
 
 # Focus on the Cross-Validation procedure
+par(mfrow=c(1,1))
 testCrossValidation(modLm,Kfold=c(2,5,10,20,30,40,dim(modLm$data$X)[1]))
 
 #------------------------------------------------------------------------
@@ -106,18 +106,19 @@ out <- stepEvolution(X,Y,Y~.^2,P=c(1,2,5,10,20,30))
 #------------------------------------------------------------------------
 # Focus on the Kriging model (see DiceKriging package for more details)
 #------------------------------------------------------------------------
-model <- km(~1, design=X, response=Y, covtype="powexp")
+mKm <- modelFit(X,Y, type="Kriging",covtype="powexp")
 K <- 10
-out   <- crossValidation(model, K)
+out   <- crossValidation(mKm, K)
 par(mfrow=c(2,2))
-plot(c(0,1:K),c(model@covariance@range.val[1],out$theta[,1]),xlab='',ylab='Theta1')
-plot(c(0,1:K),c(model@covariance@range.val[2],out$theta[,2]),xlab='',ylab='Theta2')
-plot(c(0,1:K),c(model@covariance@range.val[1],out$shape[,1]),xlab='',ylab='p1')
-plot(c(0,1:K),c(model@covariance@range.val[2],out$shape[,2]),xlab='',ylab='p2')
+plot(c(0,1:K),c(mKm$model@covariance@range.val[1],out$theta[,1]),xlab='',ylab='Theta1')
+plot(c(0,1:K),c(mKm$model@covariance@range.val[2],out$theta[,2]),xlab='',ylab='Theta2')
+plot(c(0,1:K),c(mKm$model@covariance@range.val[1],out$shape[,1]),xlab='',ylab='p1')
+plot(c(0,1:K),c(mKm$model@covariance@range.val[2],out$shape[,2]),xlab='',ylab='p2')
 par(mfrow=c(1,1))
 
 #------------------------------------------------------------------------
 # Comparison of metamodels
 #------------------------------------------------------------------------
-crit  <- modelsComparison(X,Y,type=c("Linear","Additive","MARS","PolyMARS"),test=data.frame(Xtest,Ytest),
-                        degree=2,gcv=4,formula=c(Y~.^2,formulaAm(X,Y)))
+crit  <- modelComparison(X,Y,type=c("Linear","Additive","MARS","PolyMARS","Kriging"),
+	test=data.frame(Xtest,Ytest),degree=2,gcv=4,
+	formula=c(Y~.^2,formulaAm(X,Y),Y~.))

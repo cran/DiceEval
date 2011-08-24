@@ -2,7 +2,7 @@
 \alias{residualsStudy}
 \title{Plot residuals}
 \description{
-residulasStudy analyzes the residuals of a model: a plot of the residuals against the index, a plot
+residualsStudy analyzes the residuals of a model: a plot of the residuals against the index, a plot
 of the residuals against the fitted values, the representation of the
 density and a normal Q-Q plot.
 }

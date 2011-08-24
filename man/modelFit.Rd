@@ -3,8 +3,7 @@
 \title{Fitting metamodels}
 \description{
 	\code{modelFit} is used to fit a metamodel of class \code{lm}, \code{gam},
-	\code{mars} or \code{polymars}. Kriging models are considered separately 
-	(\code{\link[DiceKriging]{km}}).
+	\code{mars}, \code{polymars} or \code{km}.
 }
 \usage{
 modelFit (X,Y, type, ...)
@@ -14,20 +13,23 @@ modelFit (X,Y, type, ...)
   \item{Y}{a vector containing the response variable}
   \item{type}{represents the method used to fit the model: 
 	\tabular{ll}{
-	\code{'Linear'} 	  \tab linear model, \cr
-	\code{'StepLinear'} \tab stepwise, \cr
-	\code{'Additive'}	  \tab gam, \cr
-	\code{'MARS'} 	  \tab mars \cr
-	\code{'PolyMARS'}	  \tab polymars \cr
+	\code{"Linear"} 	  \tab linear model, \cr
+	\code{"StepLinear"} \tab stepwise, \cr
+	\code{"Additive"}	  \tab gam, \cr
+	\code{"MARS"} 	  \tab mars \cr
+	\code{"PolyMARS"}	  \tab polymars \cr
+	\code{"Kriging"}	\tab kriging model. \cr
 	}}
   \item{\dots}{corresponds to the parameter(s) of the model. The list of the needed arguments for each type of models is given below:
 	\tabular{ll}{
-	\code{'Linear'} 	  \tab \code{formula} (see \code{\link{formulaLm}}), \cr
-	\code{'StepLinear'} \tab \code{formula} \cr
+	\code{"Linear"} 	  \tab \code{formula} (see \code{\link{formulaLm}}), \cr
+	\code{"StepLinear"} \tab \code{formula} \cr
 				  \tab \code{penalty} parameter, \cr
-	\code{'Additive'}	  \tab \code{formula} (see \code{\link{formulaAm}}), \cr
-	\code{'MARS'} 	  \tab \code{degree}, \cr
-	\code{'PolyMARS'}	  \tab \code{gcv} criteria. \cr
+	\code{"Additive"}	  \tab \code{formula} (see \code{\link{formulaAm}}), \cr
+	\code{"MARS"} 	  \tab \code{degree}, \cr
+	\code{"PolyMARS"}	  \tab \code{gcv} criteria. \cr
+	\code{"Kriging"} \tab \code{formula} \cr
+	\tab \code{covtype} \cr
 	}}
 }
 \value{
@@ -74,5 +76,9 @@ print(modMARS$model)
 library(polspline)
 modPolyMARS <- modelFit(X,Y,type = "PolyMARS",gcv=1)
 summary(modPolyMARS$model)
+
+# construction of a Kriging model
+modKm <- modelFit(X,Y,type = "Kriging")
+str(modKm$model)
 }
 \keyword{models}

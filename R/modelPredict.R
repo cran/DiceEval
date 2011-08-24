@@ -11,6 +11,8 @@ modelPredict <- function(model,newdata){
 		y_pred <- predict(object=model$model,newdata=newdata)
 	} else if (type=="PolyMARS"){
 		y_pred <- predict.polymars(model$model,x=newdata)
+	} else if (type=="Kriging"){
+		y_pred <- predict(model$model,newdata,"UK")$mean
 	} else stop("This method is not implemented yet.")
 	return(as.numeric(y_pred))
 }

@@ -2,7 +2,7 @@
 \docType{data}
 \alias{testIRSN5D}
 \title{A set of test data}
-\description{These test data correspond to the 5 dimensional case provided by the IRSN
+\description{These test data correspond to the five-dimensional case provided by the IRSN
 detailed in \code{\link{dataIRSN5D}}.}
 \usage{data(testIRSN5D)}
 \format{A data frame with 324 rows representing the number of observations and 6 columns:

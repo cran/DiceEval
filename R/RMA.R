@@ -5,5 +5,6 @@ RMA <- function(Y,Ypred)
 	if(length(Ypred)!=length(Y)){
 		stop("The entries must have the same length.")
 	}
-	return(max(abs(Y-Ypred))/sd(Y))
+	tmp_ <- sort(abs(Y-Ypred)/sd(Y),index.return=TRUE,decreasing = TRUE)
+	return(list(max.value=tmp_$x[1],max.data=tmp_$ix[1],index=tmp_$ix,error = tmp_$x))
 }

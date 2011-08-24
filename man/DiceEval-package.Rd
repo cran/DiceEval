@@ -8,17 +8,17 @@ Construction and evaluation of metamodels.
 \tabular{ll}{
 Package: \tab DiceEval\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2009-10-26\cr
+Version: \tab 1.1\cr
+Date: \tab 2011-08-24\cr
 License: \tab GPL-3\cr
 }
 }
 \details{
-This package is dedicated to the construction of metamodels. A validation procedure is then proposed using usual criteria (RMSE, MAE etc.) and cross-validation procedure. Moreover, graphical tools help to choose the best value for the penalty parameter of a stepwise or a PolyMARS model. Another routine is dedicated to the comparison of metamodels.
+This package is dedicated to the construction of metamodels. A validation procedure is also proposed using usual criteria (RMSE, MAE etc.) and cross-validation procedure. Moreover, graphical tools help to choose the best value for the penalty parameter of a stepwise or a PolyMARS model. Another routine is dedicated to the comparison of metamodels.
 }
-\note{This work was conducted within the frame of the DICE (Deep Inside Computer Experiments) Consortium between ARMINES, Renault, EDF, IRSN, ONERA and TOTAL S.A. (http://www.dice-consortium.fr/).
+\note{This work was conducted within the frame of the DICE (Deep Inside Computer Experiments) Consortium between ARMINES, Renault, EDF, IRSN, ONERA and TOTAL S.A. (http://emse.dice.fr/).
 
-Packages \code{\link[gam]{gam}}, \code{\link[mda]{mars}} and \code{\link[polspline]{polymars}} are required for the construction of metamodels. \code{\link[DiceKriging]{km}} provide Kriging models.
+Functions \code{\link[gam]{gam}}, \code{\link[mda]{mars}} and \code{\link[polspline]{polymars}} are required for the construction of metamodels. \code{\link[DiceKriging]{km}} provides Kriging models.
 
 
 }
@@ -43,9 +43,9 @@ Stones C., Hansen M.H., Kooperberg C. and Truong Y.K. (1997), Polynomial Splines
 
 \keyword{ package }
 \seealso{\code{\link{modelFit}}, \code{\link{modelPredict}},
-\code{\link{crossValidation}} and \code{\link{modelsComparison}}
+\code{\link{crossValidation}} and \code{\link{modelComparison}}
 
-Differents space-filling designs can be found in the \code{DiceDesign} package and we refer to the \code{DiceKriging} package for the construction of kriging models. This packages take part of the bundle \code{rDice}.}
+Different space-filling designs can be found in the \code{DiceDesign} package and we refer to the \code{DiceKriging} package for the construction of kriging models. This package takes part of a toolbox inplemented during the Dice consortium.}
 
 \examples{
 rm(list=ls())
@@ -83,7 +83,7 @@ persp(xtest, ytest, matrix(Zpredict,nrow=length(xtest),
 	ticktype = "detailed")
 
 # Comparison of models
- modelsComparison(X,Y,type=c("Linear", "StepLinear","PolyMARS"),
+modelComparison(X,Y,type=c("Linear", "StepLinear","PolyMARS","Kriging"),
 	formula=Y~X1+X2+X1:X2+I(X1^2)+I(X2^2),penalty=log(dim(X)[1]), gcv=4)
 
 # see also the demonstration example in dimension 5 (source: IRSN)
