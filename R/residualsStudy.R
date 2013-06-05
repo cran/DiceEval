@@ -6,7 +6,7 @@ residualsStudy <- function(model)
 		Yfit	<- model$model$fitted
 	} else Yfit	<- model$model$fitted.values
 
-	op <- par(mfrow = c(2, 2), oma=c(0,0,3,0))
+	op <- par(mfrow = c(1, 3),pty="s")
 	plot(residuals ,ylab = "residuals")
 
 	plot(Yfit,residuals,xlab = "fitted values",ylab = "residuals")
@@ -15,8 +15,9 @@ residualsStudy <- function(model)
 		ylim=c(0,max(density(residuals)$y, hist(residuals,plot=FALSE)$density)))
   	lines(density(residuals) ,col="red")
   
-  	qqnorm(residuals,xlab = "theorical quantiles",ylab = "sample quantiles",main="")
-  	qqline(residuals)
+  	# qqnorm(residuals,xlab = "theorical quantiles",ylab = "sample quantiles",main="")
+  	# qqline(residuals)
 	par(op)
-	mtext("Residuals study", side=3, line=0, font=1, cex=1.3)
+	#mtext("Residuals study", side=3, line=0, font=1, cex=1.3)
+        title("Residuals study", cex.main=1.3)
 }

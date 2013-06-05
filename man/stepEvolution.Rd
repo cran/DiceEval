@@ -15,19 +15,29 @@ stepEvolution(X,Y,formula,P=1:7,K=10,test=NULL,graphic=TRUE)
   \item{P}{a vector containing different values of the penalty
 parameter for which a stepwise selected model is fitted}
   \item{K}{the number of folds for the cross-validation procedure}
-  \item{test}{where a test set is available, the prediction criteria are
-	also evaluated on the test design (default corresponds to no data set)}
+  \item{test}{an additional data set on which the prediction criteria are evaluated (default corresponds to no test data set)}
   \item{graphic}{if \code{TRUE} the values of the criteria are represented}
 }
-\value{a list which contains the different criteria for different values of the
-penalty parameter.}
-\seealso{\code{step} procedure for linear models.}
-\note{Two plots are currently available :
+\value{a list with the different criteria for different values of the
+penalty parameter. This list contains:
+\item{penalty}{the values for the penalty parameter}
+\item{m}{size \code{m} of the selected model for each value in \code{P}}
+\item{R2}{the value of the \code{R2} criterion for each model}
+
+According to the value of the \code{test} argument, other criteria are calculated:
 \tabular{ll}{
-a. \tab a tabular representing the selected terms for each value in \code{P} \cr
-b. \tab the evolution of the \code{R2}, \code{Q2} and \code{R2test} if available
-	for each stepwise-selected model \cr
-c. \tab the evolution of the \code{RMSE} criterion using K-folds cross-validation}
+a. \tab If a test set is available, \code{R2test} contains the value of the \code{R2} 
+criterion on the test set  \cr
+b. \tab If no test set is available, the \code{Q2} and the \code{RMSE} computed by
+cross-validation are done.
+}}
+
+\seealso{\code{step} procedure for linear models.}
+\note{Plots are also available. 
+A tabular represents the selected terms for each value in \code{P}.
+
+The evolution of the \code{R2} criterion, the evolution of the size \code{m} of the selected
+model and criteria on the test set or by K-folds cross-validation are represented.
 
 These graphical tools can be used to select the best value for the penalty parameter.
 }

@@ -106,7 +106,7 @@ out <- stepEvolution(X,Y,Y~.^2,P=c(1,2,5,10,20,30))
 #------------------------------------------------------------------------
 # Focus on the Kriging model (see DiceKriging package for more details)
 #------------------------------------------------------------------------
-mKm <- modelFit(X,Y, type="Kriging",covtype="powexp")
+mKm <- modelFit(X,Y, type="Kriging",covtype="powexp",control=list(trace=FALSE))
 K <- 10
 out   <- crossValidation(mKm, K)
 par(mfrow=c(2,2))

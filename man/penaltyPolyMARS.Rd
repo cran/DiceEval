@@ -18,12 +18,21 @@ and compute criteria.
   \item{Penalty}{a vector containing the values of the penalty parameter}
 }
 
-\value{ A matrix which first line corresponds to the values of the penalty parameter
-and the following to the \code{R2} criteria evaluted on the learning set, by cross-validation
-and on the test set \code{if test!=NULL}.
+\value{ A data frame containing
+\item{a}{the values of the penalty parameter}
+\item{R2}{the \code{R2} criterion evaluted on the learning set}
+\item{m}{the size of the selected model}
 
-The \code{RMSE} computed by cross-validation is also provided. Note that the penalty parameter could be chosen by minimizing the value of the \code{RMSE} by cross-validation.
+If a test set is available the last row is
+\item{R2test}{the \code{R2} criterion evaluated on the test set}
+
+If no test set is available, criteria computed by K-corss-validation are provided:
+\item{Q2}{the \code{Q2} evaluated by cross-validation (by default, K=10)}
+\item{RMSE CV}{\code{RMSE} computed by cross-validation}
+
+Note that the penalty parameter could be chosen by minimizing the value of the \code{RMSE} by cross-validation.
 }
+
 \seealso{\code{\link{modelFit}}, \code{\link{R2}} and \code{\link{crossValidation}}}
 \author{D. Dupuy}
 \examples{

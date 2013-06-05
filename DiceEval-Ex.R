@@ -1,10 +1,9 @@
 pkgname <- "DiceEval"
 source(file.path(R.home("share"), "R", "examples-header.R"))
 options(warn = 1)
-options(pager = "console")
 library('DiceEval')
 
-assign(".oldSearch", search(), pos = 'CheckExEnv')
+base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 cleanEx()
 nameEx("DiceEval-package")
 ### * DiceEval-package
@@ -461,7 +460,7 @@ out <- testCrossValidation(mod,N=20)
 
 ### * <FOOTER>
 ###
-cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
+base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
 grDevices::dev.off()
 ###
 ### Local variables: ***

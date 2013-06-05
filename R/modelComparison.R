@@ -255,7 +255,8 @@ modelComparison <- function (X,Y,type="all",K=10,test = NULL,...) {
 	rownames(R2Crit) <- c_names
 	rownames(RMSECrit) <- c_names
 	
-    op <- par(mfrow = c(1, 2), cex = 0.7)
+#    op <- par(mfrow = c(1, 2), cex = 0.7)
+    op <- par(ask=TRUE, cex = 0.7)
     dotchart(as.matrix(R2Crit), pch = 19, xlim = c(0, 1),xlab = list("Comparison of R2", cex=1.2, font=2))
 	axis(3)
 	abline(v = axTicks(1), lty = "dotted", col = "gray60")
