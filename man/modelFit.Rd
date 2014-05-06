@@ -57,6 +57,7 @@ Y <- (Z-mean(Z))/sd(Z)
 modLm <- modelFit(X,Y,type = "Linear",formula=Y~X1+X2+X1:X2+I(X1^2)+I(X2^2))
 summary(modLm$model)
 
+\dontrun{
 # construction of a stepwise-selected model 
 modStep <- modelFit(X,Y,type = "StepLinear",penalty=log(dim(X)[1]),
 		formula=Y~X1+X2+X1:X2+I(X1^2)+I(X2^2))
@@ -80,5 +81,6 @@ summary(modPolyMARS$model)
 # construction of a Kriging model
 modKm <- modelFit(X,Y,type = "Kriging")
 str(modKm$model)
+}
 }
 \keyword{models}

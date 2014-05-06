@@ -8,8 +8,8 @@ Construction and evaluation of metamodels.
 \tabular{ll}{
 Package: \tab DiceEval\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2011-08-24\cr
+Version: \tab 1.3\cr
+Date: \tab 2014-05-27\cr
 License: \tab GPL-3\cr
 }
 }
@@ -33,7 +33,7 @@ Hastie T. and Tibshirani R. (1990), Generalized Additive Models, \emph{Chapman a
 
 Hastie T., Tibshirani R. and Friedman J. (2001), The Elements of Statistical Learning : Data Mining, Inference and Prediction, \emph{Springer}.
 
-Helbert C. and Dupuy D. (2007-09-26), Retour d'expériences sur métamodèles : partie théorique, \emph{Livrable rédigé dans le cadre du Consortium DICE}.
+Helbert C. and Dupuy D. (2007-09-26), Retour d'exp?riences sur m?tamod?les : partie th?orique, \emph{Livrable r?dig? dans le cadre du Consortium DICE}.
 
 Kooperberg C., Bose S. and Stone C.J. (1997), Polychotomous Regression, \emph{Journal of the American Statistical Association}, \bold{92} Issue 437, 117-127.
 
@@ -48,6 +48,7 @@ Stones C., Hansen M.H., Kooperberg C. and Truong Y.K. (1997), Polynomial Splines
 Different space-filling designs can be found in the \code{DiceDesign} package and we refer to the \code{DiceKriging} package for the construction of kriging models. This package takes part of a toolbox inplemented during the Dice consortium.}
 
 \examples{
+\dontrun{
 rm(list=ls())
 # A 2D example
 Branin	<- function(x1,x2) {
@@ -88,5 +89,6 @@ modelComparison(X,Y,type=c("Linear", "StepLinear","PolyMARS","Kriging"),
 
 # see also the demonstration example in dimension 5 (source: IRSN)
 demo(IRSN5D)
+}
 }
 \keyword{models}

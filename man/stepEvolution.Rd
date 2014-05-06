@@ -43,9 +43,11 @@ These graphical tools can be used to select the best value for the penalty param
 }
 \author{D. Dupuy}
 \examples{
+\dontrun{
 data(dataIRSN5D)
 design <- dataIRSN5D[,1:5]
 Y	   <- dataIRSN5D[,6]
 out	   <- stepEvolution(design,Y,formulaLm(design,Y),P=c(1,2,5,10,20,30))
+}
 }
 \keyword{models}

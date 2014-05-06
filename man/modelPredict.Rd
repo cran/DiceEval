@@ -23,6 +23,7 @@ Y  <- 3*X + rnorm(21,0,0.5)
 modLm <- modelFit(X,Y,type = "Linear",formula="Y~.")
 print(modLm$model$coefficient)
 
+\dontrun{
 # illustration on a 2-dimensional example
 Branin	<- function(x1,x2) {
 x1	<- 1/2*(15*x1+5)   
@@ -48,5 +49,6 @@ Zpredict	<- modelPredict(mKm,expand.grid(xtest,ytest))
 z <- abs(Zreal-matrix(Zpredict,nrow=length(xtest),ncol=length(ytest)))
 contour(xtest, xtest, z,30)
 points(X,pch=19)
+}
 }
 \keyword{models}

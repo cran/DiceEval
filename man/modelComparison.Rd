@@ -25,6 +25,7 @@ A graphical tool to compare the value of the criteria is proposed.
 \seealso{\code{\link{modelFit}} and \code{\link{crossValidation}}}
 \author{D. Dupuy}
 \examples{
+\dontrun{
 data(dataIRSN5D)
 X <- dataIRSN5D[,1:5]
 Y <- dataIRSN5D[,6]
@@ -33,7 +34,9 @@ library(gam)
 library(mda)
 library(polspline)
 crit  <- modelComparison(X,Y, type="all",test=testIRSN5D)
+
 crit2 <- modelComparison(X,Y, type=rep("StepLinear",5),test=testIRSN5D,
 		penalty=c(1,2,5,10,20),formula=Y~.^2)
+    }
 }
 \keyword{models}

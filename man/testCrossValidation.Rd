@@ -21,6 +21,7 @@ order to get an idea of the dispersion of the \code{Q2} criterion and of the \co
 
 \seealso{\code{\link{crossValidation}}}
 \examples{
+\dontrun{
 rm(list=ls())
 # A 2D example
 Branin <- function(x1,x2) {
@@ -36,7 +37,7 @@ Y <- Branin(X[,1],X[,2])
 mod <- modelFit(X,Y,type="Linear",formula=formulaLm(X,Y))
 out <- testCrossValidation(mod,N=20)
 }
-
+}
 \keyword{models}
 
 

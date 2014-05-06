@@ -87,7 +87,7 @@ stepEvolution <- function(X,Y,formula,P=1:7,K=10,test=NULL,graphic=TRUE){
 	if(graphic==TRUE){
 		if(is.null(test)){
 		  m = min(R2criterion,Q2criterion); M=max(R2criterion,Q2criterion);
-		  op <- par(ask=TRUE,mfrow = c(2, 2),oma=c(0,0,3,0))
+		  op <- par(ask=TRUE,mfrow = c(1, 3),oma=c(0,0,3,0))
 
 		  plot(P,R2criterion,type='b',pch=19,xlab='Penalty parameter',ylab='R2',ylim=c(m,M),xaxt="n")
           	  axis(side=1,at=P)
@@ -107,7 +107,7 @@ stepEvolution <- function(X,Y,formula,P=1:7,K=10,test=NULL,graphic=TRUE){
 
 		} else {
 
-		  op <- par(ask=TRUE,mfrow = c(2, 2), oma=c(0,0,3,0))
+		  op <- par(ask=TRUE,mfrow = c(1, 3), oma=c(0,0,3,0))
 		  m = min(R2criterion,R2testcriterion)
 		  M = max(R2criterion,R2testcriterion)
 
