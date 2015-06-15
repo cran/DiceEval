@@ -1,4 +1,4 @@
-052d63c34bff9b31eb123884008d6551 *DESCRIPTION
+cc0d7652ebca20ae27811552461b5c41 *DESCRIPTION
 9cf6785a1257893af1703effca059d76 *NAMESPACE
 058b88d12d2c6d217f546818120c34b3 *R/MAE.R
 7a51f02afe53ba00a28da0795af7e52d *R/R2.R
@@ -8,8 +8,8 @@ c134ad1fc836689a595fdb0ee6377d72 *R/crossValidation.R
 66186c51864ee4ce7b4d3d1baa0c04c3 *R/formulaAm.R
 81e1fb3487819673783d177672eaafcb *R/formulaLm.R
 6da1c6cad168c64ee306e53cb5a74d54 *R/modelComparison.R
-bab226e33097b21bdf339122e8e46222 *R/modelFit.R
-b611da8e6c6e4684829283cdd70d2957 *R/modelPredict.R
+0aba145683cf933a9717e04568e89687 *R/modelFit.R
+c0abe27372eacad6b8cda4288bb2108f *R/modelPredict.R
 b0437b573d5613561dc4ac35b28e1645 *R/penaltyPolyMARS.R
 5138721746035eef9007555a228bca05 *R/residualsStudy.R
 d312806967efedc718d756003102997c *R/stepEvolution.R
@@ -18,7 +18,8 @@ d312806967efedc718d756003102997c *R/stepEvolution.R
 25c4ea17de5697b0142e9a67632f3b33 *data/testIRSN5D.txt.gz
 6071a9f3ba84f10cf9cf73742fc508e5 *demo/00Index
 fc0196c5a190ceebc0397aa665e57f74 *demo/IRSN5D.R
-c8b2b527bce32a6a4e34feb1e5e85eee *man/DiceEval-package.Rd
+22bcaf1773caa998fbdda4d9b8d3101d *inst/CITATION
+683bdcb208a922a969a7a0c9ee0140e6 *man/DiceEval-package.Rd
 db7d87caa9a490587dd0828f2c415362 *man/MAE.Rd
 bbb2e465e73a53e8bf41d28b228572a1 *man/R2.Rd
 6a6821ebb4422c8fbf1e284910bb671a *man/RMA.Rd

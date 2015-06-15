@@ -20,21 +20,21 @@ modelFit <- function (X,Y, type, ...)
 	  warning("[type==\"Additive\"] argument \'formula\' not found, set at \'Y~~ s(X1)+...+s(Xp)\'")
 	  fmla <- formulaAm(X,Y) 
 	} else 	fmla <- argList$formula
-	model <- gam(formula=fmla, data=data)
+	model <- gam::gam(formula=fmla, data=data)
 	out <- list(data=list(X=X,Y=data[,f+1,drop = TRUE]),type=type,formula=fmla,model=model)
   } else if (type == "MARS"){
 	if(is.null(argList$degree)==TRUE){
 	  warning("[type==\"MARS\"] argument \'degree\' not found, set at \'2\'")
 	  degree <- 2
 	} else 	degree <- argList$degree;
-	model <- mars(data[,1:f],data[,f+1],degree=degree)
+	model <- mda::mars(data[,1:f],data[,f+1],degree=degree)
 	out <- list(data=list(X=X,Y=data[,f+1,drop = TRUE]),type=type,degree=degree,model=model)
   } else if (type == "PolyMARS"){
 	if(is.null(argList$gcv)==TRUE){
 	  warning("[type==\"PolyMARS\"] argument \'gcv\' not found, set at \'4\'")
 	  a <- 4
 	} else 	a <- argList$gcv;	
-	model <- polymars(data[,f+1],data[,1:f],gcv=a)
+	model <- polspline::polymars(data[,f+1],data[,1:f],gcv=a)
 	out <- list(data=list(X=X,Y=data[,f+1,drop = TRUE]),type=type,gcv=a,model=model)
   } else if (type == "StepLinear"){
 	if(is.null(argList$formula)==TRUE){

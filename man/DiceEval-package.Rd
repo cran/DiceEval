@@ -8,8 +8,8 @@ Construction and evaluation of metamodels.
 \tabular{ll}{
 Package: \tab DiceEval\cr
 Type: \tab Package\cr
-Version: \tab 1.3\cr
-Date: \tab 2014-05-27\cr
+Version: \tab 1.4\cr
+Date: \tab 2015-06-15\cr
 License: \tab GPL-3\cr
 }
 }
@@ -26,6 +26,8 @@ Functions \code{\link[gam]{gam}}, \code{\link[mda]{mars}} and \code{\link[polspl
 D. Dupuy & C. Helbert
 }
 \references{
+Dupuy D., Helbert C., Franco J. (2015), DiceDesign and DiceEval: Two R-Packages for Design and Analysis of Computer Experiments, \emph{Journal of Statistical Software}, \bold{65}(11), 1--38, \url{http://www.jstatsoft.org/v65/i11/}.
+
 Friedman J. (1991), Multivariate Adaptative Regression Splines (invited paper),
 \emph{Annals of Statistics}, \bold{10}/1, 1-141.
 
