@@ -12,5 +12,4 @@ export(crossValidation,
 	RMSE,
 	stepEvolution,
 	testCrossValidation)
-
-import(DiceKriging)
+import(stats,graphics,DiceKriging)
