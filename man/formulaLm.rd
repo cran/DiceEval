@@ -1,7 +1,7 @@
 \name{formulaLm}
 \alias{formulaLm}
 
-\title{Construction of a formula Y \~ X1+...+Xp}
+\title{Construction of a formula Y ~ X1+...+Xp}
 \description{
 This function constructs a formula containing only the principal factors. 
 }

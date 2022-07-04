@@ -10,7 +10,7 @@ citEntry(entry = "Article",
   volume       = "65",
   number       = "11",
   pages        = "1--38",
-  url          = "http://www.jstatsoft.org/v65/i11/",
+  url          = "https://www.jstatsoft.org/v65/i11/",
 
   textVersion  =
   paste("Delphine Dupuy, Celine Helbert, Jessica Franco (2015).",
