@@ -25,5 +25,5 @@ Fernex F., Heulers L, Jacquet O., Miss J. and Richet Y. (2005) \emph{The MORET 4
 \usage{data(dataIRSN5D)}
 \format{a data frame with 50 observations (lines) and 6 columns. Columns 1 to 5 correspond to the design of experiments for the input variables ("b","e","p","r" and "l") and the last column the value of the output "keff".}
 \author{Y. Richet}
-\source{IRSN (Institut de Radioprotection et de Sûreté Nucléaire)}
+\source{IRSN (Institut de Radioprotection et de SÃ»retÃ© NuclÃ©aire)}
 \keyword{datasets}

@@ -19,7 +19,7 @@ modelComparison <- function (X,Y,type="all",K=10,test = NULL,...) {
 	testCrit <- data.frame(matrix(0, nrow = 2, ncol = length(type)))
 	rownames(testCrit) <- c("R2", "RMSE")
 
-    # VÈrification des donnÈes (apprentissage et test de mÍme dim.)
+    # V√©rification des donn√©es (apprentissage et test de m√™me dim.)
 	if (!is.null(test)){
 		if (dim(test)[2] != dim(data)[2]) {
 	        warning("The dimensions of the test set are not correct.")
@@ -27,7 +27,7 @@ modelComparison <- function (X,Y,type="all",K=10,test = NULL,...) {
 	    }
 	}
 
-	# Pour les labels besoin de connaÓtre le nombre de modËles ‡ comparer
+	# Pour les labels besoin de conna√Ætre le nombre de mod√®les √† comparer
 	Nb_model <- data.frame(matrix(0,nrow=2,ncol=6))
 	colnames(Nb_model) <- c("Linear", "StepLinear","Additive","MARS","PolyMARS","Kriging")
 
@@ -43,16 +43,16 @@ modelComparison <- function (X,Y,type="all",K=10,test = NULL,...) {
 					Kriging = {Nb_model[1,6] = Nb_model[1,6]+1})
 
 	  if(type_ == "Linear" | type_ == "Additive"){
-		# RÈcupËre la formule + vÈrification cvompatibilitÈ des entrÈes
-		# (autant de modËles que de formules -- idem pour le stepwise et
+		# R√©cup√®re la formule + v√©rification cvompatibilit√© des entr√©es
+		# (autant de mod√®les que de formules -- idem pour le stepwise et
 		# le krigeage)
 		if(!is.null(argList$formula)){
-			# RÈcupËre le nb de formules (l_fmla) en entrÈe
+			# R√©cup√®re le nb de formules (l_fmla) en entr√©e
 			if (inherits(argList$formula, "formula")){
 				l_fmla <- 1
 			} else l_fmla <- length(argList$formula)
 
-			# RÈcupËre la formule (fmla) et vÈrifie que tout est ok.
+			# R√©cup√®re la formule (fmla) et v√©rifie que tout est ok.
 			if(l_fmla==1){
 				fmla <- argList$formula
 			} else if(l_fmla>=2 & l_fmla<=length(type)){
@@ -64,7 +64,7 @@ modelComparison <- function (X,Y,type="all",K=10,test = NULL,...) {
 			} else if (l_fmla > length(type)){
 					stop("Argument \'formula'\ has not a valid length.")
 			}
-		} else { # dans le cas o˘ rien n'est indiquÈ ==> formules par dÈfaut
+		} else { # dans le cas o√π rien n'est indiqu√© ==> formules par d√©faut
 			switch(type_, Linear   = {warning("[Linear model] Argument \'formula\' not found, set at \'Y~.\'")
 										fmla <- formulaLm(X,Y)},
 					  Additive = {  warning("[Additive model] Argument \'formula\' not found, set at \'Y~s(X1)+...+s(Xp)\'")
@@ -194,8 +194,8 @@ modelComparison <- function (X,Y,type="all",K=10,test = NULL,...) {
 			learningCrit[1, i] <- R2(Y, modTmp$model$fitted)
 			learningCrit[2, i] <- RMSE(Y, modTmp$model$fitted)
 		} else if(type_=="Kriging"){
-			# VÈrification que les donnÈes prÈdites aux points du plan interpolent
-			# les donnÈes d'apprentissage
+			# V√©rification que les donn√©es pr√©dites aux points du plan interpolent
+			# les donn√©es d'apprentissage
 			tmp_ <- modelPredict(modTmp,newdata=X)
 			if(sum(abs(Y-tmp_)) >= 10e-10){
 				warning("Warning: Kriging model doesn't interpolate the data.")

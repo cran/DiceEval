@@ -10,5 +10,5 @@ the first five corresponding to the input variables ("b","e","p","r" and "l") an
 \code{Keff}.
 }
 \seealso{\code{\link{dataIRSN5D}}}
-\source{IRSN (Institut de Radioprotection et de Sûreté Nucléaire)}
+\source{IRSN (Institut de Radioprotection et de SÃ»retÃ© NuclÃ©aire)}
 \keyword{datasets}

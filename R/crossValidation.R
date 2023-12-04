@@ -37,7 +37,7 @@ crossValidation <- function(model,K){
 				penalty = model_@penalty, optim.method = model_@optim.method, 
 				lower = model_@lower, upper = model_@upper, parinit = model_@parinit,
 				control = model_@control, gr = model_@gr)
-				# ---- tous les modèles sont estimés avec la même initialisation (parinit ?)
+				# ---- tous les modÃ¨les sont estimÃ©s avec la mÃªme initialisation (parinit ?)
 				theta[i,] <- modi$model@covariance@range.val
 				trend[i,] <- modi$model@trend.coef	
 				if(model_@covariance@param.n==2*p){
